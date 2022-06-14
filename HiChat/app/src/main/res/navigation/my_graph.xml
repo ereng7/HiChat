@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_graph"
+    app:startDestination="@id/homepage">
+
+    <fragment
+        android:id="@+id/homepage"
+        android:name="com.erengulbahar.hichat.user.Homepage"
+        android:label="fragment_homepage"
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepage_to_receivingMessages"
+            app:destination="@id/receivingMessages"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/my_graph"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/receivingMessages"
+        android:name="com.erengulbahar.hichat.user.ReceivingMessages"
+        android:label="fragment_receiving_messages"
+        tools:layout="@layout/fragment_receiving_messages" >
+        <action
+            android:id="@+id/action_receivingMessages_to_homepage"
+            app:destination="@id/homepage"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/my_graph"
+            app:popUpToInclusive="true"
+            />
+        <action
+            android:id="@+id/action_receivingMessages_to_sendingMessages"
+            app:destination="@id/sendingMessages" />
+        <action
+            android:id="@+id/action_receivingMessages_to_writeMessage"
+            app:destination="@id/writeMessage" />
+        <action
+            android:id="@+id/action_receivingMessages_to_receivingDetailMessage"
+            app:destination="@id/receivingDetailMessage" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendingMessages"
+        android:name="com.erengulbahar.hichat.user.SendingMessages"
+        android:label="fragment_sending_messages"
+        tools:layout="@layout/fragment_sending_messages" >
+        <action
+            android:id="@+id/action_sendingMessages_to_homepage"
+            app:destination="@id/homepage"
+            app:popUpTo="@id/my_graph"
+            app:popUpToInclusive="true"
+            />
+        <action
+            android:id="@+id/action_sendingMessages_to_sendingDetailMessage"
+            app:destination="@id/sendingDetailMessage" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeMessage"
+        android:name="com.erengulbahar.hichat.user.WriteMessage"
+        android:label="fragment_write_message"
+        tools:layout="@layout/fragment_write_message" >
+        <action
+            android:id="@+id/action_writeMessage_to_receivingMessages"
+            app:destination="@id/receivingMessages" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendingDetailMessage"
+        android:name="com.erengulbahar.hichat.detail.SendingDetailMessage"
+        android:label="fragment_sending_detail_message"
+        tools:layout="@layout/fragment_sending_detail_message" >
+        <argument
+            android:name="receiver"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="sender"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="topic"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="time"
+            app:argType="string"
+            android:defaultValue="empty" />
+    </fragment>
+    <fragment
+        android:id="@+id/receivingDetailMessage"
+        android:name="com.erengulbahar.hichat.detail.ReceivingDetailMessage"
+        android:label="fragment_receiving_detail_message"
+        tools:layout="@layout/fragment_receiving_detail_message" >
+        <argument
+            android:name="receiver"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="sender"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="topic"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <argument
+            android:name="time"
+            app:argType="string"
+            android:defaultValue="empty" />
+    </fragment>
+</navigation>
